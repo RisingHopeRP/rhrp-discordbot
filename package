@@ -1,0 +1,8 @@
+{
+    “name”: “Phoenix API”,
+    “version”: “1.0.0”,
+    “description”: “{Welcome to Rising Hope. I am your Phoenix API. Lets get you started.}”,
+    “main”: “bot.js”,
+    “author”: “Viper”,
+    “dependencies”: {}
+}
