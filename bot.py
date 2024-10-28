@@ -22,9 +22,7 @@ async def on_member_join(member):
         description="Welcome to Rising Hope. I am your Phoenix API. We are currently under development, but let\'s get you started.",
         colour=discord.Colour.dark_red()
     )
-    try:
-        await member.send(embed=embed)
-    except: pass
+    await member.send(embed=embed)
 
 @client.event
 async def on_message(msg):
@@ -55,10 +53,21 @@ async def on_message(msg):
             embed.set_image(url='https://i.postimg.cc/zGzRjGdt/Untitled_design_(2).png')
             await msg.channel.send(embed=embed)
 
+        if cmdname=="channels":
+            embed = discord.Embed(
+                title="Important Channels",
+                description="Here is a list of important channels!  \n  \n[Documentation](https://rising-hope-rp.gitbook.io/rising-hope-rp-docs/)  \n[Tebex](https://risinghoperp.tebex.io/)",
+                colour=discord.Colour.dark_red(),
+            )
+            embed.set_author(name='Phoenix Specialists Division', icon_url="https://i.postimg.cc/J79qCRsV/Rising-Hope-RP-1.png")
+            embed.set_thumbnail(url='https://i.postimg.cc/J79qCRsV/Rising-Hope-RP-1.png')
+            embed.set_image(url='https://i.postimg.cc/zGzRjGdt/Untitled_design_(2).png')
+            await msg.channel.send(embed=embed)
+
         if cmdname=="commands":
             embed = discord.Embed(
                 title="Commands",
-                description="**The current commands that we have are !welcome, !website, and !channels at the moment with more to be added.**",
+                description="The current commands that we have are:  \n  \n**!welcome** - Welcome Message to allow for members to get a basis for the server.  \n**!website** - Links to all Server Websites (Tebex and Documentation)  \n**!channels** - All Channels that are Important.  \n  \nMore channels will be added in due time!",
                 colour=discord.Colour.dark_red()
             )
             embed.set_author(name='Phoenix Specialists Division', icon_url="https://i.postimg.cc/J79qCRsV/Rising-Hope-RP-1.png")
