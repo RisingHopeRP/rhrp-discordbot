@@ -12,6 +12,21 @@ intents.message_content = True
 client = Client(intents=intents)
 
 @client.event
+async def on_ready():
+    print(f'{client.user.name} has connected to Discord!')
+
+@client.event
+async def on_member_join(member):
+    embed = discord.Embed(
+        title="Hello",
+        description="Welcome to Rising Hope. I am your Phoenix API. We are currently under development, but let\'s get you started.",
+        colour=discord.Colour.dark_red()
+    )
+    try:
+        await member.send(embed=embed)
+    except: pass
+
+@client.event
 async def on_message(msg):
     print(msg.author," sent ", msg.content)
     if msg.content.startswith("!"):
@@ -75,23 +90,5 @@ async def on_message(msg):
                 )
                 await msg.channel.send(embed.embed)
 
-@client.event
-async def on_ready():
-    print(f'{client.user.name} has connected to Discord!')
-
-@client.event
-async def on_member_join(member):
-    embed = discord.Embed(
-        title="Hello",
-        description="Welcome to Rising Hope. I am your Phoenix API. We are currently under development, but let\'s get you started.",
-        colour=discord.Colour.dark_red()
-    )
-    embed.set_author(name='Phoenix Specialists Division', icon_url="https://i.postimg.cc/J79qCRsV/Rising-Hope-RP-1.png")
-    embed.set_thumbnail(url='https://i.postimg.cc/J79qCRsV/Rising-Hope-RP-1.png')
-    embed.set_image(url='https://i.postimg.cc/zGzRjGdt/Untitled_design_(2).png')
-
-    try:
-        await member.send(embed=embed)
-    except: pass
 print("Connecting...")
 client.run(json.load(open("auth.json"))["token"])
