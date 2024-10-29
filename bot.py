@@ -8,6 +8,9 @@ class Client(discord.Client):
 
 intents = discord.Intents.default()
 intents.message_content = True
+intents.members = True
+intents.guilds = True
+intents.integrations = True
 
 client = Client(intents=intents)
 
